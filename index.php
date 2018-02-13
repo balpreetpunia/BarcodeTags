@@ -51,38 +51,40 @@
 <hr>
 <div>
     <div class="container">
+        <div class="col-print-12 col-lg-7 offset-lg-2 card p-6 pt-2 " >
         <?php foreach ($available as $avail ): ?>
             <div id="teletime" class="row">
-                <div class="col-2">
+                <div class="col-2 pl-2 pr-2">
                     <img src="img/logo-t.png" class="img-fluid mt-2" height="100" width="100">
                 </div>
                 <div class="col-6">
                     <svg id="barcode" class="barcode img-fluid"></svg>
                 </div>
                 <div class="col-4 p-0">
-                    <div id="brand" class="mt-3">
+                    <div id="brand" class="mt-3 pr-1">
                         <?php include 'shared/brand.php'; $brand=$avail['BRAND']; getImage($brand); ?>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-7 mt-4 ">
+                <div class="col-7 mt-4 pl-2">
                     <p id="description" class="mb-0"><?= /*'Description: '.*/$avail['DESCRIPTION'] ?></p>
                 </div>
                 <div class="col-5 mt-2 p-0">
-                    <p id="price1" class="text-right mb-0">Sale Price</p>
-                    <p id="price2" class="text-right mt-0 mb-0"><?='$'.$avail['PRICE'] ?></p>
+                    <p id="price1" class="text-right mb-0 pr-1">Sale Price</p>
+                    <p id="price2" class="text-right mt-0 mb-0 pr-1" ><?='$'.$avail['PRICE'] ?></p>
                 </div>
             </div>
             <div class="row">
-                <div class="col-7 mt-0">
+                <div class="col-7 mt-0 pl-2">
                     <p id="info1">Colour variants may be available<!--<span id="info-in">(ask sales staff)</span>--></p>
                 </div>
                 <div class="col-5 p-0">
-                    <p id="info2" class="text-right">0% Finance (O.A.C)</p>
+                    <p id="info2" class="text-right pr-1">0% Finance (O.A.C)</p>
                 </div>
             </div>
         <?php endforeach ?>
+        </div>
     </div>
 </div>
 <script>
