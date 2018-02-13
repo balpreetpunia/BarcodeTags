@@ -43,3 +43,19 @@
          echo '<p> Company Logo</p>';
      }
  }
+
+ function getBrand(){
+     echo '<option value"AMANA">AMANA</option>
+           <option value"ASHLEY">ASHLEY</option>
+           <option value"BOSCH">BOSCH</option>
+           <option value"ELECTROLUX">ELECTROLUX</option>
+           <option value"FRIGIDAIRE">FRIGIDAIRE</option>
+           <option value"JENNAIR">JENNAIR</option>
+           <option value"KITCHENAID">KITCHENAID</option>
+           <option value"KLIPSCH">KLIPSCH</option>
+           <option value"LG">LG</option>
+           <option value"MAYTAG">MAYTAG</option>
+           <option value"SAMSUNG">SAMSUNG</option>
+           <option value"SONY">SONY</option>
+           <option value"WHIRLPOOL">WHIRLPOOL</option>';
+ }

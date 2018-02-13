@@ -43,19 +43,20 @@
             <div class="btn-group d-flex" role="group">
                 <button class="btn btn-primary w-100" id="clickMe" type="submit" value="clickme" onclick="code();" >Generate</button>
                 <button class="btn btn-dark w-100" id="clickMe2" type="button" value="clickme2" onclick="window.print();" >Print</button>
-                <a class="btn btn-success w-100" id="clickMe3" type="button" href="edit.php?model=<?= $model ?>" >Edit</a>
+                <a class="btn btn-success w-50" id="clickMe3" type="button" href="edit?model=<?= $model ?>" >Edit</a>
+                <a class="btn btn-success w-50" id="clickMe3" type="button" href="new" >New</a>
             </div>
         </form>
     </div>
 </div>
 <hr>
 <div>
+    <?php foreach ($available as $avail ): ?>
     <div class="container">
-        <div class="col-print-12 col-lg-7 offset-lg-2 card p-6 pt-2 " >
-        <?php foreach ($available as $avail ): ?>
+        <div class="col-print-12 col-lg-7 offset-lg-3 card p-6 pt-2 " >
             <div id="teletime" class="row">
                 <div class="col-2 pl-2 pr-2">
-                    <img src="img/logo-t.png" class="img-fluid mt-2" height="100" width="100">
+                    <img src="img/logo-t.png" class="img-fluid" height="100" width="100">
                 </div>
                 <div class="col-6">
                     <svg id="barcode" class="barcode img-fluid"></svg>
@@ -83,9 +84,9 @@
                     <p id="info2" class="text-right pr-1">0% Finance (O.A.C)</p>
                 </div>
             </div>
-        <?php endforeach ?>
         </div>
     </div>
+    <?php endforeach ?>
 </div>
 <script>
     <?php

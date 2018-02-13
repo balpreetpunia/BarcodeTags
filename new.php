@@ -1,35 +1,28 @@
 <?php
 
-    $model = isset($_GET['model']) ? $_GET['model'] : '';
+    $model = isset($_POST['model']) ? $_POST['model'] : '';
     $model = strtoupper($model);
 
-    $modelUpdate = isset($_POST['modelUpdate']) ? $_POST['modelUpdate'] : '';
-    $modelUpdate = strtoupper($modelUpdate);
-
-    $description = isset($_POST['description']) ? $_POST['description'] : '';
+    $description = isset($_POST['description']) ? $_POST['description'] : null;
     $price = isset($_POST['price']) ? $_POST['price'] : '';
-    $id = isset($_POST['id']) ? $_POST['id'] : '';
+    $brand = isset($_POST['brand']) ? $_POST['brand'] : '';
+
+    $error = 0;
+    $success = 0;
 
     require_once( 'shared/connect.php' );
 
-    $sql = "select * from data where model = '$model'";
-    $sth = $dbh->prepare($sql);
-    $sth->execute();
-    $available = $sth->fetchAll();
-    $count = $sth->rowCount();
-
-    if ($model != ''){
-        foreach ($available as $avail ) {
-            $id = $avail["id"];
-        }
-    }
-
-    if ($modelUpdate != ''){
-        $sqlUpdate = "update data set model = '$modelUpdate', description = '$description', price = $price where id = $id";
-        $dbh->exec($sqlUpdate);
-
+    if ($model != '' && $price != ''){
+        $sql = "INSERT INTO data (`MODEL`, `DESCRIPTION`, `PRICE`, `BRAND`) VALUES ('$model','$description',$price,'$brand');";
+        $dbh->exec($sql);
         $success = 1;
     }
+    else{
+        $error = 1;
+    }
+
+
+
 
     $dbh=null;
 
@@ -56,18 +49,21 @@
         <p>Enter Data to generate tag</p>
     </div>
     <div class="input-field">
-        <form id="calculator" method="post" action="edit.php">
+        <form id="calculator" method="post" action="new.php">
             <div class=" form-group input-group">
-                <input id="model" name="modelUpdate" class="form-control" placeholder="Model" type="text" />
+                <input id="model" name="model" class="form-control" placeholder="Model" type="text" />
+            </div>
+            <div class="form-group input-group">
+                <select class="form-control" name="brand">
+                    <option value="">Select Brand</option>
+                    <?php include 'shared/brand.php';  getBrand(); ?>
+                </select>
             </div>
             <div class=" form-group input-group">
                 <input id="description" name="description" class="form-control" placeholder="Description" type="text" />
             </div>
             <div class=" form-group input-group">
                 <input id="price" name="price" class="form-control" placeholder="Price" type="number" step="any" />
-            </div>
-            <div class=" form-group input-group">
-                <input name="id" value="<?= $id ?>" type="hidden" />
             </div>
             <div class="btn-group d-flex" role="group">
                 <button class="btn btn-success w-100" id="clickMe" type="submit" value="clickme" onclick="code();" >Save</button>
@@ -79,20 +75,11 @@
 <hr>
 <script>
     <?php
-        if($model != ''){
-            foreach ($available as $avail ){
-                $description = $avail["DESCRIPTION"];
-                $description = addslashes($description);
-
-                echo 'document.getElementById("model").value = "'.$avail["MODEL"].'";';
-                echo 'document.getElementById("description").value = "'. $description.'";';
-                echo 'document.getElementById("price").value = "'.$avail["PRICE"].'";';
-            }
-        }
 
         if(isset($success) && $success ==1){
             echo 'alert("Update Successful.");';
         }
+
     ?>
 </script>
 <script>
