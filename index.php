@@ -59,7 +59,7 @@
                 <div class="col-6">
                     <svg id="barcode" class="barcode img-fluid"></svg>
                 </div>
-                <div class="col-4">
+                <div class="col-4 p-0">
                     <div id="brand" class="mt-3">
                         <?php include 'shared/brand.php'; $brand=$avail['BRAND']; getImage($brand); ?>
                     </div>
@@ -67,9 +67,9 @@
             </div>
             <div class="row">
                 <div class="col-7 mt-4 ">
-                    <p id="description" class="mb-0"><?= 'Description: '.$avail['DESCRIPTION'] ?></p>
+                    <p id="description" class="mb-0"><?= /*'Description: '.*/$avail['DESCRIPTION'] ?></p>
                 </div>
-                <div class="col-5 mt-2">
+                <div class="col-5 mt-2 p-0">
                     <p id="price1" class="text-right mb-0">Sale Price</p>
                     <p id="price2" class="text-right mt-0 mb-0"><?='$'.$avail['PRICE'] ?></p>
                 </div>
@@ -78,7 +78,7 @@
                 <div class="col-7 mt-0">
                     <p id="info1">Colour variants may be available<!--<span id="info-in">(ask sales staff)</span>--></p>
                 </div>
-                <div class="col-5">
+                <div class="col-5 p-0">
                     <p id="info2" class="text-right">0% Finance (O.A.C)</p>
                 </div>
             </div>
@@ -92,6 +92,11 @@
             margin: 0,
             font: "verdana"
             });';
+
+            foreach ($available as $avail ){
+
+                echo 'document.getElementById("model").value = "'.$avail["MODEL"].'";';
+            }
         }
     ?>
 </script>

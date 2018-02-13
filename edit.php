@@ -1,16 +1,39 @@
 <?php
 
-$model = isset($_GET['model']) ? $_GET['model'] : '';
-$model = strtoupper($model);
-require_once( 'shared/connect.php' );
+    $model = isset($_GET['model']) ? $_GET['model'] : '';
+    $model = strtoupper($model);
 
-$sql = "select * from data where model = '$model'";
-$sth = $dbh->prepare($sql);
-$sth->execute();
-$available = $sth->fetchAll();
-$count = $sth->rowCount();
+    $modelUpdate = isset($_POST['modelUpdate']) ? $_POST['modelUpdate'] : '';
+    $modelUpdate = strtoupper($modelUpdate);
 
-$dbh=null;
+    $description = isset($_POST['description']) ? $_POST['description'] : '';
+    $price = isset($_POST['price']) ? $_POST['price'] : '';
+    $id = isset($_POST['id']) ? $_POST['id'] : '';
+
+    require_once( 'shared/connect.php' );
+
+    $sql = "select * from data where model = '$model'";
+    $sth = $dbh->prepare($sql);
+    $sth->execute();
+    $available = $sth->fetchAll();
+    $count = $sth->rowCount();
+
+    if ($model != ''){
+        foreach ($available as $avail ) {
+            $id = $avail["id"];
+        }
+    }
+
+    if ($modelUpdate != ''){
+        $sqlUpdate = "update data set model = '$modelUpdate', description = '$description', price = $price where id = $id";
+        $dbh->exec($sqlUpdate);
+
+        $success = 1;
+    }
+
+    $dbh=null;
+
+
 
 ?>
 <!DOCTYPE html>
@@ -33,15 +56,19 @@ $dbh=null;
         <p>Enter Data to generate tag</p>
     </div>
     <div class="input-field">
-        <form id="calculator" method="get" action="index.php">
+        <form id="calculator" method="post" action="edit.php">
             <div class=" form-group input-group">
-                <input id="model" name="model" class="form-control" placeholder="Model" type="text" />
+                <input id="model" name="modelUpdate" class="form-control" placeholder="Model" type="text" />
             </div>
             <div class=" form-group input-group">
                 <input id="description" name="description" class="form-control" placeholder="Description" type="text" />
             </div>
             <div class=" form-group input-group">
-                <input id="price" name="price" class="form-control" placeholder="Price" type="number" />
+                <input id="price" name="price" class="form-control" placeholder="Price" type="number" step="any" />
+            </div>
+            <div class=" form-group input-group">
+
+                <input name="id" value="<?= $id ?>" type="hidden" />
             </div>
             <div class="btn-group d-flex" role="group">
                 <button class="btn btn-success w-100" id="clickMe" type="submit" value="clickme" onclick="code();" >Save</button>
@@ -62,7 +89,10 @@ $dbh=null;
                 echo 'document.getElementById("description").value = "'. $description.'";';
                 echo 'document.getElementById("price").value = "'.$avail["PRICE"].'";';
             }
+        }
 
+        if(isset($success) && $success ==1){
+            echo 'alert("Update Successful.");';
         }
     ?>
 </script>
