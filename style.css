@@ -56,7 +56,7 @@
 @media print{
 
     @page  {
-        size: 6in 4in;
+        size: 5.5in 4in;
     }
 
     #container1, hr{
@@ -83,12 +83,12 @@
     }
 
     #info1{
-        font-size: large;
+        font-size: medium;
     }
 
     #info2{
         font-weight: bold;
-        font-size: large;
+        font-size: medium;
     }
 
     #info-in{
