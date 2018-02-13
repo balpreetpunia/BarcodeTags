@@ -1,0 +1,98 @@
+@charset "UTF-8";
+
+
+
+@media screen {
+
+    /*#barcode {
+        display: block;
+        margin: auto;
+    }
+
+    #description{
+        font-size: x-large;
+    }
+
+    #price1, #price2{
+        font-weight: bolder;
+        font-size: x-large;
+    }
+
+    #price2{
+        font-family: Calibri;
+        font-size: 360%;
+        color: red;
+    }*/
+
+    #barcode {
+        display: block;
+        margin: auto;
+    }
+
+    #description{
+        font-size: small;
+    }
+
+    #price1, #price2{
+        font-weight: bolder;
+        font-size: x-large;
+    }
+
+    #price2{
+        font-size: 360%;
+        color: red;
+    }
+
+    #info2{
+        font-weight: bold;
+    }
+
+    #info-in{
+        font-weight: normal;
+        font-size: x-small;
+    }
+}
+
+@media print{
+
+    @page  {
+        size: 6in 4in;
+    }
+
+    #container1, hr{
+        display: none;
+    }
+
+    #barcode {
+        display: block;
+        margin: auto;
+    }
+
+    #description{
+        font-size: small;
+    }
+
+    #price1, #price2{
+        font-weight: bolder;
+        font-size: x-large;
+    }
+
+    #price2{
+        font-size: 360%;
+        color: red;
+    }
+
+    #info1{
+        font-size: large;
+    }
+
+    #info2{
+        font-weight: bold;
+        font-size: large;
+    }
+
+    #info-in{
+        font-weight: normal;
+        font-size: x-small;
+    }
+}
