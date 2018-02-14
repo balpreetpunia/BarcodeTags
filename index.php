@@ -17,7 +17,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Barcode Received</title>
+    <title>Barcode Tag Generator</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="JsBarcode.all.min.js"></script>
     <!--<script src="bar.js"></script>-->
@@ -30,22 +30,22 @@
 <body>
 <div class="container" id="container1">
     <div class="jumbotron">
-        <h1>Teletime Barcode Tags</h1>
+        <h1>Teletime Barcode Tag Generator</h1>
         <p>Enter Data to generate tag</p>
     </div>
     <div class="input-field">
         <form id="calculator" method="get" action="index.php">
-            <div class=" form-group input-group">
+            <div class="form-group">
                 <input id="model" name="model" class="auto form-control" placeholder="Model" type="text" />
                 <!--<span class="input-group-btn">
                     <button class="btn btn-secondary" type="button">Scan</button>
                 </span>-->
             </div>
             <div class="btn-group d-flex" role="group">
-                <button class="btn btn-primary w-100" id="clickMe" type="submit" value="clickme" onclick="code();" >Generate</button>
-                <button class="btn btn-dark w-100" id="clickMe2" type="button" value="clickme2" onclick="window.print();" >Print</button>
-                <a class="btn btn-success w-50" id="clickMe3" type="button" href="edit?model=<?= $model ?>" >Edit</a>
-                <a class="btn btn-success w-50" id="clickMe3" type="button" href="new" >New</a>
+                <button class="btn btn-primary w-100" id="generate" onclick="code1();" type="submit">Generate</button>
+                <button class="btn btn-dark w-100"  type="button" onclick="window.print();" >Print</button>
+                <a class="btn btn-success w-50"  type="button" id="edit" onclick="return code2();" href="edit?model=<?= $model ?>" >Edit</a>
+                <a class="btn btn-success w-50"  type="button" href="new" >New</a>
             </div>
         </form>
     </div>
@@ -126,6 +126,24 @@
 
     });
 </script>
-<script>console.log("Balpreet Punia \nbalpreetpunia.github.io \n705-500-4784");</script>
+<script>
+    function code1() {
+
+        if(document.getElementById("model").value.toString() === ''){
+            window.alert("Enter Model Number");
+        }
+
+    }
+
+    function code2() {
+
+        if(document.getElementById("teletime") == null){
+            window.confirm("Generate tag to edit");
+            return false;
+        }
+
+    }
+</script>
+<script>console.log("Balpreet Punia \nhttps://balpreetpunia.github.io \n705-500-4784");</script>
 </body>
 </html>

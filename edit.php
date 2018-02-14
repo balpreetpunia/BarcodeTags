@@ -57,11 +57,11 @@
     </div>
     <div class="input-field">
         <form id="calculator" method="post" action="edit.php">
-            <div class=" form-group input-group">
+            <div class="form-group">
                 <input id="model" name="modelUpdate" class="form-control" placeholder="Model" type="text" />
             </div>
             <div class=" form-group input-group">
-                <input id="description" name="description" class="form-control" placeholder="Description" type="text" />
+                <textarea id="description" name="description" class="form-control" placeholder="Description" type="text" maxlength="190"></textarea>
             </div>
             <div class=" form-group input-group">
                 <input id="price" name="price" class="form-control" placeholder="Price" type="number" step="any" />
