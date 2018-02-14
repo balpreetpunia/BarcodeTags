@@ -82,7 +82,7 @@
                     <p id="info1">Colour variants may be available<!--<span id="info-in">(ask sales staff)</span>--></p>
                 </div>
                 <div class="col-5 p-0">
-                    <p id="info2" class="text-right pr-1">0% Finance (O.A.C)</p>
+                    <p id="info2" class="text-right pr-1">Ask about 0% Finance (O.A.C)</p>
                 </div>
             </div>
         </div>
