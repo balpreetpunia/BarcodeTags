@@ -4,26 +4,6 @@
 
 @media screen {
 
-    /*#barcode {
-        display: block;
-        margin: auto;
-    }
-
-    #description{
-        font-size: x-large;
-    }
-
-    #price1, #price2{
-        font-weight: bolder;
-        font-size: x-large;
-    }
-
-    #price2{
-        font-family: Calibri;
-        font-size: 360%;
-        color: red;
-    }*/
-
     #barcode {
         display: block;
         margin: auto;
@@ -101,7 +81,9 @@
         font-size: x-small;
     }
 
-    /*.card{
+    /* To remove card border from print
+    /*
+    .card{
         border: 0px;
         padding: 0px 0px 0px 0px;
     }*/
