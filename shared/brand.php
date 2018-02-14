@@ -39,6 +39,15 @@
      elseif (strtolower($brand) == 'klipsch'){
          echo '<img class="img-fluid" src="img/klipsch.png">';
      }
+     elseif (strtolower($brand) == 'tempurpedic'){
+         echo '<img class="img-fluid" src="img/tempurpedic.jpg">';
+     }
+     elseif (strtolower($brand) == 'sealy'){
+         echo '<img class="img-fluid" src="img/sealy.png">';
+     }
+     elseif (strtolower($brand) == 'sofa by fancy'){
+         echo '<img class="img-fluid" src="img/fancy.png">';
+     }
      else{
          echo '<p> Company Logo</p>';
      }
@@ -56,6 +65,9 @@
            <option value"LG">LG</option>
            <option value"MAYTAG">MAYTAG</option>
            <option value"SAMSUNG">SAMSUNG</option>
+           <option value"SEALY">SEALY</option>
+           <option value"SOFA BY FANCY">SOFA BY FANCY</option>
            <option value"SONY">SONY</option>
+           <option value"TEMPURPEDIC">TEMPURPEDIC</option>
            <option value"WHIRLPOOL">WHIRLPOOL</option>';
  }
