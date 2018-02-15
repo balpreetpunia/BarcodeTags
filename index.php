@@ -34,7 +34,7 @@ $dbh=null;
         <p>Enter Data to generate tag</p>
     </div>
     <div class="input-field">
-        <form id="calculator" method="get" action="index.php">
+        <form id="calculator" method="get" action="">
             <div class="form-group">
                 <input id="model" name="model" class="auto form-control" placeholder="Model" type="text" />
                 <!--<span class="input-group-btn">
@@ -44,7 +44,7 @@ $dbh=null;
             <div class="btn-group d-flex" role="group">
                 <button class="btn btn-primary w-100" id="generate" onclick="code1();" type="submit">Generate</button>
                 <button class="btn btn-dark w-100"  type="button" onclick="window.print();" >Print</button>
-                <button class="btn btn-success w-100"  type="button" id="edit" onclick="return code2();" href="edit?model=<?= $model ?>" >Edit</button>
+                <a class="btn btn-success w-100"  type="button" id="edit" onclick="return code2();" href="edit?model=<?= $model ?>" >Edit</a>
                 <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 </button>
                 <div class="dropdown-menu">
@@ -62,10 +62,10 @@ $dbh=null;
         <div class="container">
             <div class="col-print-12 col-lg-7 offset-lg-3 card p-6 pt-2 " >
                 <div id="teletime" class="row">
-                    <div class="col-2 pl-2 pr-2">
+                    <div class="col-2 pl-2 pr-2 pt-3">
                         <img src="img/logo-t.png" class="img-fluid" height="100" width="100">
                     </div>
-                    <div class="col-6">
+                    <div class="col-6 pt-3">
                         <svg id="barcode" class="barcode img-fluid"></svg>
                     </div>
                     <div class="col-4 p-0">
@@ -100,7 +100,10 @@ $dbh=null;
     if($model != ''){
         echo 'JsBarcode("#barcode", "'.$model.'", {
             margin: 0,
-            font: "verdana"
+            font: "verdana",
+            height: 70,
+            fontOptions: "bold",
+            fontSize: 25
             });';
 
         foreach ($available as $avail ){
