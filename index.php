@@ -78,10 +78,10 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-7 mt-0 pl-2">
+                <div class="col-6 mt-0 pl-2">
                     <p id="info1">Colour variants may be available<!--<span id="info-in">(ask sales staff)</span>--></p>
                 </div>
-                <div class="col-5 p-0">
+                <div class="col-6 p-0">
                     <p id="info2" class="text-right pr-1">Ask about 0% Finance (O.A.C)</p>
                 </div>
             </div>
