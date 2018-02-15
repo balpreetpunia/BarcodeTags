@@ -83,9 +83,14 @@
             foreach ($available as $avail ){
                 $description = $avail["DESCRIPTION"];
                 $description = addslashes($description);
-
+                $description = str_replace("\n", " ", $description);
+                $description = str_replace("\r", " ", $description);
+                /*Fail test*/
+                /*echo 'var description = "'.$description.'";';
+                echo "console.log('description');";
+                echo 'var description = description.replace(/(\r\n|\n|\r)/gm," ");';*/
                 echo 'document.getElementById("model").value = "'.$avail["MODEL"].'";';
-                echo 'document.getElementById("description").value = "'. $description.'";';
+                echo "document.getElementById('description').value = '". $description."';";
                 echo 'document.getElementById("price").value = "'.$avail["PRICE"].'";';
             }
         }
@@ -96,10 +101,10 @@
     ?>
 </script>
 <script>
-    document.addEventListener('keydown', function(event) {
+    /*document.addEventListener('keydown', function(event) {
         if( event.keyCode == 13 || event.keyCode == 17 || event.keyCode == 74 )
             event.preventDefault();
-    });
+    });*/
 </script>
 
 </body>
