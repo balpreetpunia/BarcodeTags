@@ -45,7 +45,8 @@
                 <button class="btn btn-primary w-100" id="generate" onclick="code1();" type="submit">Generate</button>
                 <button class="btn btn-dark w-100"  type="button" onclick="window.print();" >Print</button>
                 <a class="btn btn-success w-50"  type="button" id="edit" onclick="return code2();" href="edit?model=<?= $model ?>" >Edit</a>
-                <a class="btn btn-success w-50"  type="button" href="new" >New</a>
+                <a class="btn btn-success w-33"  type="button" href="new" >New</a>
+                <a class="btn btn-success w-33"  type="button" href="multiple" >Multiple</a>
             </div>
         </form>
     </div>

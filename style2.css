@@ -48,7 +48,7 @@
         size: 5.8in 4in;
     }
 
-    #container1, hr {
+    #container1,#count, hr {
         display: none;
     }
 
