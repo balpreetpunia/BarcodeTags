@@ -48,8 +48,8 @@ $dbh=null;
                 <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 </button>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="new" >New</a>
-                    <a class="dropdown-item" href="multiple" >Multiple</a>
+                    <a class="dropdown-item" href="new" >New Model</a>
+                    <a class="dropdown-item" href="multiple" >Multiple Tags</a>
                 </div>
 
             </div>
