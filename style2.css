@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @charset "UTF-8";
 
 
@@ -97,4 +98,105 @@
     }*/
 
     .col-print-12{width:100%; float:left;}
+=======
+@charset "UTF-8";
+
+
+
+@media screen {
+
+    .barcode {
+        display: block;
+        margin: auto;
+    }
+
+    #description{
+        font-size: medium;
+    }
+
+    #price1, #price2{
+        font-weight: bolder;
+        font-size: x-large;
+    }
+
+    #price2{
+        font-size: 360%;
+        color: red;
+    }
+
+    #info1{
+        font-size: small;
+    }
+
+    #info2{
+        font-weight: bold;
+        font-size: medium;
+    }
+
+    #info-in{
+        font-weight: normal;
+        font-size: x-small;
+    }
+
+    #test{
+        padding-bottom: 1in;
+    }
+}
+
+@media print{
+
+    @page  {
+        size: 5.8in 4in;
+    }
+
+    #container1, hr{
+        display: none;
+    }
+
+    .barcode {
+        display: block;
+        margin: auto;
+    }
+
+    #description{
+        font-size: small;
+    }
+
+    #price1, #price2{
+        font-weight: bolder;
+        font-size: x-large;
+    }
+
+    #price2{
+        font-size: 250%;
+        color: red;
+    }
+
+    #info1{
+        font-size: small;
+    }
+
+    #info2{
+        font-weight: bold;
+        font-size: small;
+    }
+
+    #info-in{
+        font-weight: normal;
+        font-size: x-small;
+    }
+
+    #test{
+        padding-bottom: 8.2cm;
+    }
+
+    /* To remove card border from print
+    /*
+    .card{
+        border: 0px;
+        padding: 0px 0px 0px 0px;
+    }*/
+
+    .col-print-12{width:100%; float:left;}
+>>>>>>> 529aaaa94cf292fd62a71cf2b9e25a7d0e5c4aec
 }
