@@ -1,19 +1,3 @@
-<?php
-require_once( 'shared/connect.php' );
-
-require_once( 'multipleSql.php' );
-$sth = $dbh->prepare($sql);
-$sth->execute();
-$available = $sth->fetchAll();
-$count = $sth->rowCount();
-
-$dbh=null;
-
-
-$i = 1;
-
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,18 +19,15 @@ $i = 1;
         <p>Enter Data to generate tag</p>
     </div>
     <div class="input-field">
-        <form id="calculator" method="get" action="index.php">
+        <form id="calculator" method="post" action="test.php">
             <div class="form-group">
-                <input id="model" name="model" class="auto form-control" placeholder="Model" type="text" />
+                <input id="model" name="multiple" class="auto form-control" placeholder="Add all models seperate only by a ','" type="text" />
                 <!--<span class="input-group-btn">
                     <button class="btn btn-secondary" type="button">Scan</button>
                 </span>-->
             </div>
             <div class="btn-group d-flex" role="group">
-                <button class="btn btn-primary w-100" id="generate" onclick="code1();" type="submit">Generate</button>
-                <button class="btn btn-dark w-100"  type="button" onclick="window.print();" >Print</button>
-                <a class="btn btn-success w-50"  type="button" id="edit" onclick="return code2();" href="edit?model=<?= $model ?>" >Edit</a>
-                <a class="btn btn-success w-50"  type="button" href="new" >New</a>
+                <button class="btn btn-primary w-100" id="generate" type="submit">Generate</button>
             </div>
         </form>
     </div>

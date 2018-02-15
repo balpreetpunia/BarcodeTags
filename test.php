@@ -2,6 +2,14 @@
 require_once( 'shared/connect.php' );
 
 require_once( 'multipleSql.php' );
+
+$sql = $_POST["multiple"];
+echo $sql;
+$sql = str_replace(",", "' OR MODEL = '", $sql);
+$sql = "SELECT * FROM data WHERE MODEL = '".$sql."';";
+echo $sql;
+
+
 $sth = $dbh->prepare($sql);
 $sth->execute();
 $available = $sth->fetchAll();
