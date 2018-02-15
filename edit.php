@@ -85,6 +85,7 @@
                 $description = addslashes($description);
                 $description = str_replace("\n", " ", $description);
                 $description = str_replace("\r", " ", $description);
+
                 /*Fail test*/
                 /*echo 'var description = "'.$description.'";';
                 echo "console.log('description');";
