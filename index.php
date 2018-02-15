@@ -1,16 +1,16 @@
 <?php
 
-    $model = isset($_GET['model']) ? $_GET['model'] : '';
-    $model = strtoupper($model);
-    require_once( 'shared/connect.php' );
+$model = isset($_GET['model']) ? $_GET['model'] : '';
+$model = strtoupper($model);
+require_once( 'shared/connect.php' );
 
-    $sql = "select * from data where model = '$model'";
-    $sth = $dbh->prepare($sql);
-    $sth->execute();
-    $available = $sth->fetchAll();
-    $count = $sth->rowCount();
+$sql = "select * from data where model = '$model'";
+$sth = $dbh->prepare($sql);
+$sth->execute();
+$available = $sth->fetchAll();
+$count = $sth->rowCount();
 
-    $dbh=null;
+$dbh=null;
 
 ?>
 <!DOCTYPE html>
@@ -44,9 +44,14 @@
             <div class="btn-group d-flex" role="group">
                 <button class="btn btn-primary w-100" id="generate" onclick="code1();" type="submit">Generate</button>
                 <button class="btn btn-dark w-100"  type="button" onclick="window.print();" >Print</button>
-                <a class="btn btn-success w-50"  type="button" id="edit" onclick="return code2();" href="edit?model=<?= $model ?>" >Edit</a>
-                <a class="btn btn-success w-33"  type="button" href="new" >New</a>
-                <a class="btn btn-success w-33"  type="button" href="multiple" >Multiple</a>
+                <button class="btn btn-success w-100"  type="button" id="edit" onclick="return code2();" href="edit?model=<?= $model ?>" >Edit</button>
+                <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="new" >New</a>
+                    <a class="dropdown-item" href="multiple" >Multiple</a>
+                </div>
+
             </div>
         </form>
     </div>
@@ -54,55 +59,55 @@
 <hr>
 <div>
     <?php foreach ($available as $avail ): ?>
-    <div class="container">
-        <div class="col-print-12 col-lg-7 offset-lg-3 card p-6 pt-2 " >
-            <div id="teletime" class="row">
-                <div class="col-2 pl-2 pr-2">
-                    <img src="img/logo-t.png" class="img-fluid" height="100" width="100">
+        <div class="container">
+            <div class="col-print-12 col-lg-7 offset-lg-3 card p-6 pt-2 " >
+                <div id="teletime" class="row">
+                    <div class="col-2 pl-2 pr-2">
+                        <img src="img/logo-t.png" class="img-fluid" height="100" width="100">
+                    </div>
+                    <div class="col-6">
+                        <svg id="barcode" class="barcode img-fluid"></svg>
+                    </div>
+                    <div class="col-4 p-0">
+                        <div id="brand" class="mt-3 pr-1">
+                            <?php include 'shared/brand.php'; $brand=$avail['BRAND']; getImage($brand); ?>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-6">
-                    <svg id="barcode" class="barcode img-fluid"></svg>
+                <div class="row">
+                    <div class="col-7 mt-4 pl-2">
+                        <p id="description" class="mb-0"><?= /*'Description: '.*/$avail['DESCRIPTION'] ?></p>
+                    </div>
+                    <div class="col-5 mt-2 p-0">
+                        <p id="price1" class="text-right mb-0 pr-1">Sale Price</p>
+                        <p id="price2" class="text-right mt-0 mb-0 pr-1" ><?='$'.floatval($avail['PRICE']) ?></p>
+                    </div>
                 </div>
-                <div class="col-4 p-0">
-                    <div id="brand" class="mt-3 pr-1">
-                        <?php include 'shared/brand.php'; $brand=$avail['BRAND']; getImage($brand); ?>
+                <div class="row">
+                    <div class="col-6 mt-0 pl-2">
+                        <p id="info1">Colour variants may be available<!--<span id="info-in">(ask sales staff)</span>--></p>
+                    </div>
+                    <div class="col-6 p-0">
+                        <p id="info2" class="text-right pr-1">Ask about 0% Finance (O.A.C)</p>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-7 mt-4 pl-2">
-                    <p id="description" class="mb-0"><?= /*'Description: '.*/$avail['DESCRIPTION'] ?></p>
-                </div>
-                <div class="col-5 mt-2 p-0">
-                    <p id="price1" class="text-right mb-0 pr-1">Sale Price</p>
-                    <p id="price2" class="text-right mt-0 mb-0 pr-1" ><?='$'.floatval($avail['PRICE']) ?></p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-6 mt-0 pl-2">
-                    <p id="info1">Colour variants may be available<!--<span id="info-in">(ask sales staff)</span>--></p>
-                </div>
-                <div class="col-6 p-0">
-                    <p id="info2" class="text-right pr-1">Ask about 0% Finance (O.A.C)</p>
-                </div>
-            </div>
         </div>
-    </div>
     <?php endforeach ?>
 </div>
 <script>
     <?php
-        if($model != ''){
-            echo 'JsBarcode("#barcode", "'.$model.'", {
+    if($model != ''){
+        echo 'JsBarcode("#barcode", "'.$model.'", {
             margin: 0,
             font: "verdana"
             });';
 
-            foreach ($available as $avail ){
+        foreach ($available as $avail ){
 
-                echo 'document.getElementById("model").value = "'.$avail["MODEL"].'";';
-            }
+            echo 'document.getElementById("model").value = "'.$avail["MODEL"].'";';
         }
+    }
     ?>
 </script>
 <script>
