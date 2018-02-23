@@ -37,6 +37,10 @@
         font-size: x-small;
     }
 
+    #title{
+        font-size: x-large;
+    }
+
     #test{
         padding-bottom: 1in;
     }

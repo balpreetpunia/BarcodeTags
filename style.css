@@ -58,7 +58,7 @@
     }
 
     #description{
-        font-size: x-small;
+        font-size: small;
     }
 
     #price1, #price2{
@@ -86,7 +86,7 @@
     }
 
     #title{
-        font-size: larger;
+        /*font-size: larger;*/
     }
 
     /* To remove card border from print

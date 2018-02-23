@@ -76,11 +76,11 @@ if (isset($_POST["multiple"])) {
         <div class="container" id="test">
             <div class="col-print-12 col-lg-7 offset-lg-3 card p-6 pt-2 " >
                 <div id="teletime" class="row">
-                    <div class="col-2 pl-2 pr-2">
+                    <div class="col-2 pl-2 pr-2 pt-3">
                         <img src="img/logo-t.png" class="img-fluid" height="100" width="100">
                     </div>
-                    <div class="col-6">
-                        <svg id="barcode<?=$i?>" class="barcode img-fluid"></svg>
+                    <div class="col-6 p-0 pl-1 pt-3">
+                        <p id="title"><strong><?= $avail['TITLE']?></strong></p>
                     </div>
                     <div class="col-4 p-0">
                         <div id="brand" class="mt-3 pr-1">
@@ -89,8 +89,12 @@ if (isset($_POST["multiple"])) {
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-7 mt-4 pl-2">
-                        <p id="description" class="mb-0"><?= /*'Description: '.*/$avail['DESCRIPTION'] ?></p>
+                    <div class="col-7 p-0 pl-2">
+                        <?php
+                        $description = $avail['DESCRIPTION'];
+                        $description = str_replace("•","<br>• ",$description,$count);
+                        ?>
+                        <p id="description" class="mb-0"><?= $description?></p>
                     </div>
                     <div class="col-5 mt-2 p-0">
                         <p id="price1" class="text-right mb-0 pr-1">Sale Price</p>
@@ -98,11 +102,11 @@ if (isset($_POST["multiple"])) {
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-6 mt-0 pl-2">
-                        <p id="info1">Colour variants may be available<!--<span id="info-in">(ask sales staff)</span>--></p>
+                    <div class="col-6 mt-2 pl-2">
+                        <svg id="barcode<?=$i?>" class="barcode img-fluid"></svg>
                     </div>
-                    <div class="col-6 p-0">
-                        <p id="info2" class="text-right pr-1">Ask about 0% Finance (O.A.C)</p>
+                    <div class="col-6 p-0 pt-2 mb-1">
+                        <p id="info2" class="text-right pr-1 m-0">Ask about 0% Finance (O.A.C)</p>
                     </div>
                 </div>
             </div>
@@ -113,7 +117,8 @@ if (isset($_POST["multiple"])) {
     if($model != ''){
         echo 'JsBarcode("#barcode'.$i.'", "'.$model.'", {
             margin: 0,
-            font: "verdana"
+            height: 25,
+            displayValue: false
             });';
 
     }
@@ -167,6 +172,11 @@ if (isset($_POST["multiple"])) {
         }
 
     }
+</script>
+<script>
+    $(document).ready(function(){
+        $("br:first-child").remove();
+    });
 </script>
 <script>console.log("Balpreet Punia \nhttps://balpreetpunia.github.io \n705-500-4784");</script>
 </body>

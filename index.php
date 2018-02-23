@@ -91,8 +91,8 @@ $dbh=null;
                     <div class="col-6 mt-2 pl-2">
                         <svg id="barcode" class="barcode img-fluid"></svg>
                     </div>
-                    <div class="col-6 p-0">
-                        <p id="info2" class="text-right pr-1">Ask about 0% Finance (O.A.C)</p>
+                    <div class="col-6 p-0 pt-2 mb-1">
+                        <p id="info2" class="text-right pr-1 m-0">Ask about 0% Finance (O.A.C)</p>
                     </div>
                 </div>
             </div>
