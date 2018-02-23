@@ -6,6 +6,7 @@
     $modelUpdate = isset($_POST['modelUpdate']) ? $_POST['modelUpdate'] : '';
     $modelUpdate = strtoupper($modelUpdate);
 
+    $title = isset($_POST['title']) ? $_POST['title'] : '';
     $description = isset($_POST['description']) ? $_POST['description'] : '';
     $price = isset($_POST['price']) ? $_POST['price'] : '';
     $id = isset($_POST['id']) ? $_POST['id'] : '';
@@ -25,7 +26,7 @@
     }
 
     if ($modelUpdate != ''){
-        $sqlUpdate = "update data set model = '$modelUpdate', description = '$description', price = $price where id = $id";
+        $sqlUpdate = "update data set model = '$modelUpdate', title = '$title', description = '$description', price = $price where id = $id";
         $dbh->exec($sqlUpdate);
 
         $success = 1;
@@ -61,7 +62,10 @@
                 <input id="model" name="modelUpdate" class="form-control" placeholder="Model" type="text" />
             </div>
             <div class=" form-group input-group">
-                <textarea id="description" name="description" class="form-control" placeholder="Description" type="text" maxlength="190"></textarea>
+                <textarea id="title" name="title" class="form-control" placeholder="Title" type="text"></textarea>
+            </div>
+            <div class=" form-group input-group">
+                <textarea id="description" name="description" class="form-control" placeholder="Description" type="text"></textarea>
             </div>
             <div class=" form-group input-group">
                 <input id="price" name="price" class="form-control" placeholder="Price" type="number" step="any" />
@@ -81,16 +85,19 @@
     <?php
         if($model != ''){
             foreach ($available as $avail ){
+                $title = $avail["TITLE"];
+                $title = addslashes($title);
+                $title = str_replace("\n", " ", $title);
+                $title = str_replace("\r", " ", $title);
+
                 $description = $avail["DESCRIPTION"];
                 $description = addslashes($description);
                 $description = str_replace("\n", " ", $description);
                 $description = str_replace("\r", " ", $description);
 
-                /*Fail test*/
-                /*echo 'var description = "'.$description.'";';
-                echo "console.log('description');";
-                echo 'var description = description.replace(/(\r\n|\n|\r)/gm," ");';*/
+
                 echo 'document.getElementById("model").value = "'.$avail["MODEL"].'";';
+                echo "document.getElementById('title').value = '". $title."';";
                 echo "document.getElementById('description').value = '". $description."';";
                 echo 'document.getElementById("price").value = "'.$avail["PRICE"].'";';
             }

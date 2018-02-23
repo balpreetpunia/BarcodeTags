@@ -36,6 +36,10 @@
         font-weight: normal;
         font-size: x-small;
     }
+
+    #title{
+        font-size: x-large;
+    }
 }
 
 @media print{
@@ -54,7 +58,7 @@
     }
 
     #description{
-        font-size: small;
+        font-size: x-small;
     }
 
     #price1, #price2{
@@ -79,6 +83,10 @@
     #info-in{
         font-weight: normal;
         font-size: x-small;
+    }
+
+    #title{
+        font-size: larger;
     }
 
     /* To remove card border from print

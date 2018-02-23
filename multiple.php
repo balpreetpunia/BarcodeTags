@@ -3,7 +3,8 @@ require_once( 'shared/connect.php' );
 
 if (isset($_POST["multiple"])) {
     $sql1 = $_POST["multiple"];
-    $sql = str_replace(",", "' OR MODEL = '", $sql1);
+    $requested = substr_count($sql1, ',') +1;
+    $sql = str_replace(",", "' OR MODEL = '", $sql1,$count);
     $sql = "SELECT * FROM data WHERE MODEL = '" . $sql . "';";
 
 
@@ -13,7 +14,6 @@ if (isset($_POST["multiple"])) {
     $count = $sth->rowCount();
 
     $dbh = null;
-
 
     $i = 1;
 }
@@ -41,7 +41,7 @@ if (isset($_POST["multiple"])) {
         <p>Enter model numbers seprerated by a ',' (UN55MU6500,UN55MU7000,UN75MU8000)</p>
     </div>
     <div class="input-field">
-        <form id="calculator" method="post" action="multiple.php">
+        <form id="calculator" method="post" action="">
             <div class="form-group">
                 <input id="model" name="multiple" class="auto form-control" placeholder="Enter model numbers seprerated by a ',' (UN55MU6500,UN55MU7000,UN75MU8000)" type="text" />
                 <!--<span class="input-group-btn">
@@ -57,9 +57,16 @@ if (isset($_POST["multiple"])) {
     </div>
 </div>
 <hr>
-<div class="container" >
-    <div class="col-lg-7 offset-lg-3 p-0">
-        <strong><p id="count"></p></strong>
+<div class="container">
+    <div class="col-lg-7 offset-lg-3">
+        <div class="row">
+            <div class="col-6 p-0">
+                <strong><p id="count"></p></strong>
+            </div>
+            <div class="col-6 p-0 text-right">
+                <strong><p id="requested"></p></strong>
+            </div>
+        </div>
     </div>
 </div>
 <?php if(isset($_POST["multiple"])) : ?>
@@ -124,7 +131,8 @@ if (isset($_POST["multiple"])) {
 </script>
 <script>
     <?= 'document.getElementById("model").value = "'.$sql1.'";'; ?>
-    <?= 'document.getElementById("count").innerHTML = "Total generated: '.($i-1).'";'; ?>
+    <?= 'document.getElementById("count").innerHTML = "Total Generated: '.($i-1).'";'; ?>
+    <?= 'document.getElementById("requested").innerHTML = "Total Requested: '.($requested).'";'; ?>
 </script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
