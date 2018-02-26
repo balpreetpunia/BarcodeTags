@@ -75,7 +75,7 @@ $dbh=null;
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-7 p-0 pl-2">
+                    <div class="col-7 p-0 pl-2 pt-1">
                         <?php
                             $description = $avail['DESCRIPTION'];
                             $description = str_replace("•","<br>• ",$description,$count);
@@ -115,6 +115,7 @@ $dbh=null;
     }
     ?>
 </script>
+<!--To prevent barcode scanner from opening Downloads page -->
 <script>
     /*document.addEventListener('keydown', function(event) {
         if( event.keyCode == 13 || event.keyCode == 17 || event.keyCode == 74 )

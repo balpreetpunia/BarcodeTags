@@ -61,10 +61,10 @@ if (isset($_POST["multiple"])) {
     <div class="col-lg-7 offset-lg-3">
         <div class="row">
             <div class="col-6 p-0">
-                <strong><p id="count"></p></strong>
+                <strong id="count"></strong>
             </div>
             <div class="col-6 p-0 text-right">
-                <strong><p id="requested"></p></strong>
+                <strong id="requested"></strong>
             </div>
         </div>
     </div>
@@ -89,7 +89,7 @@ if (isset($_POST["multiple"])) {
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-7 p-0 pl-2">
+                    <div class="col-7 p-0 pl-2 pt-1">
                         <?php
                         $description = $avail['DESCRIPTION'];
                         $description = str_replace("•","<br>• ",$description,$count);
