@@ -76,37 +76,37 @@ if (isset($_POST["multiple"])) {
         <div class="container" id="test">
             <div class="col-print-12 col-lg-7 offset-lg-3 card p-6 pt-2 " >
                 <div id="teletime" class="row">
-                    <div class="col-2 pl-2 pr-2 pt-3">
-                        <img src="img/logo-t.png" class="img-fluid" height="100" width="100">
+                    <div id="title-div" class="col-8 p-0 pl-3 pt-3">
+                        <p id="title"><strong><?= strtoupper($avail['TITLE'])?></strong></p>
                     </div>
-                    <div class="col-6 p-0 pl-1 pt-3">
-                        <p id="title"><strong><?= $avail['TITLE']?></strong></p>
-                    </div>
-                    <div class="col-4 p-0">
-                        <div id="brand" class="mt-3 pr-1">
+                    <div class="col-4 p-0 pt-2">
+                        <div id="brand" class="pr-3">
                             <?php include_once 'shared/brand.php'; $brand=$avail['BRAND']; getImage($brand); ?>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-7 p-0 pl-2 pt-1">
+                    <div class="col-7 p-0 pl-3 pt-1">
                         <?php
-                        $description = $avail['DESCRIPTION'];
+                        $description = ucwords(strtolower($avail['DESCRIPTION']));
                         $description = str_replace("•","<br>• ",$description,$count);
                         ?>
                         <p id="description" class="mb-0"><?= $description?></p>
+                        <div class="col-8 mt-2 pl-0">
+                            <svg id="barcode<?=$i?>" class="barcode img-fluid"></svg>
+                        </div>
                     </div>
-                    <div class="col-5 mt-2 p-0">
+                    <div class="col-5 mt-2 p-0 pr-3">
                         <p id="price1" class="text-right mb-0 pr-1">Sale Price</p>
-                        <p id="price2" class="text-right mt-0 mb-0 pr-1" ><?='$'.floatval($avail['PRICE']) ?></p>
+                        <p id="price2" class="text-right mt-0 mb-0 pr-1" ><?=floatval($avail['PRICE']) ?></p>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-6 mt-2 pl-2">
-                        <svg id="barcode<?=$i?>" class="barcode img-fluid"></svg>
+                <div class="row p-0 mb-1">
+                    <div class="col-6  pl-3">
+                        <p id="model_display" ><?= $avail['MODEL'];?></p>
                     </div>
-                    <div class="col-6 p-0 pt-2 mb-1">
-                        <p id="info2" class="text-right pr-1 m-0">Ask about 0% Finance (O.A.C)</p>
+                    <div class="col-6 pr-3  ">
+                        <p id="info2" class="text-right pr-1 m-0 mb-0">Ask About 0% Finance (O.A.C)</p>
                     </div>
                 </div>
             </div>

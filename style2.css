@@ -4,13 +4,14 @@
 
 @media screen {
 
-    .barcode {
+    #barcode {
         display: block;
         margin: auto;
     }
 
     #description{
-        font-size: medium;
+        font-size: large;
+        height: 135px;
     }
 
     #price1, #price2{
@@ -19,7 +20,7 @@
     }
 
     #price2{
-        font-size: 360%;
+        font-size: 400%;
         color: red;
     }
 
@@ -28,6 +29,12 @@
     }
 
     #info2{
+        font-weight: bold;
+        font-size: medium;
+        color: darkblue;
+    }
+
+    #model_display{
         font-weight: bold;
         font-size: medium;
     }
@@ -41,56 +48,79 @@
         font-size: x-large;
     }
 
+    #title-div{
+        height: 102.35px;
+    }
+
     #test{
         padding-bottom: 1in;
+    }
+
+    .card{
+        border-color: black;
     }
 }
 
 @media print {
 
-    @page {
-        size: 5.8in 4in;
+    @page  {
+        size: 6in 4in;
     }
 
     #container1,#count,#requested, hr {
         display: none;
     }
 
-    .barcode {
+    #barcode {
         display: block;
         margin: auto;
     }
 
-    #description {
-        font-size: small;
+    #description{
+        font-size: 90%;
+        height: 107px;
     }
 
-    #price1, #price2 {
+    #price1, #price2{
         font-weight: bolder;
         font-size: x-large;
     }
 
-    #price2 {
-        font-size: 250%;
+    #price2{
+        font-size: 280%;
         color: red;
     }
 
-    #info1 {
+    #info1{
         font-size: small;
     }
 
-    #info2 {
+    #info2{
+        font-weight: bold;
+        font-size: small;
+        color: darkblue;
+    }
+
+    #model_display{
         font-weight: bold;
         font-size: small;
     }
 
-    #info-in {
+    #info-in{
         font-weight: normal;
         font-size: x-small;
     }
 
+    #title{
+        /*font-size: larger;*/
+    }
+
+    #title-div{
+        height: 70px;
+    }
+
     #test {
-        padding-bottom: 8.2cm;
+        padding-bottom: 8.15cm;
     }
 
     /* To remove card border from print
@@ -99,6 +129,11 @@
         border: 0px;
         padding: 0px 0px 0px 0px;
     }*/
+
+    .card{
+        border-color: black;
+    }
+    
     .col-print-12 {
         width: 100%;
         float: left;

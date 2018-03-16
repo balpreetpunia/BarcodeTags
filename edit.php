@@ -3,6 +3,10 @@
     $model = isset($_GET['model']) ? $_GET['model'] : '';
     $model = strtoupper($model);
 
+    /*if(isset($_GET['save'])){
+        header("location :index?model=$model");
+    }*/
+
     $modelUpdate = isset($_POST['modelUpdate']) ? $_POST['modelUpdate'] : '';
     $modelUpdate = strtoupper($modelUpdate);
 
@@ -74,8 +78,8 @@
                 <input name="id" value="<?= $id ?>" type="hidden" />
             </div>
             <div class="btn-group d-flex" role="group">
-                <button class="btn btn-success w-100" id="clickMe" type="submit" value="clickme" onclick="code();" >Save</button>
-                <a class="btn btn-primary w-100" id="clickMe3" type="button" href="index" >Back</a>
+                <button class="btn btn-success w-100" id="clickMe" type="submit" value="save" onclick="code();" >Save</button>
+                <a class="btn btn-primary w-100" id="clickMe3" type="button" href="index?model=<?= $model?>" >Back</a>
             </div>
         </form>
     </div>
@@ -104,7 +108,8 @@
         }
 
         if(isset($success) && $success ==1){
-            echo 'alert("Update Successful.");';
+            echo 'alert("Update Successful. ");';
+            echo "window.location = 'index?model=$modelUpdate'";
         }
     ?>
 </script>

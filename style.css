@@ -10,7 +10,8 @@
     }
 
     #description{
-        font-size: medium;
+        font-size: large;
+        height: 135px;
     }
 
     #price1, #price2{
@@ -19,7 +20,7 @@
     }
 
     #price2{
-        font-size: 360%;
+        font-size: 400%;
         color: red;
     }
 
@@ -28,6 +29,12 @@
     }
 
     #info2{
+        font-weight: bold;
+        font-size: medium;
+        color: darkblue;
+    }
+
+    #model_display{
         font-weight: bold;
         font-size: medium;
     }
@@ -40,12 +47,20 @@
     #title{
         font-size: x-large;
     }
+
+    #title-div{
+        height: 102.35px;
+    }
+
+    .card{
+        border-color: black;
+    }
 }
 
 @media print{
 
     @page  {
-        size: 5.8in 4in;
+        size: 6in 4in;
     }
 
     #container1, hr{
@@ -58,7 +73,8 @@
     }
 
     #description{
-        font-size: small;
+        font-size: 90%;
+        height: 107px;
     }
 
     #price1, #price2{
@@ -67,7 +83,7 @@
     }
 
     #price2{
-        font-size: 250%;
+        font-size: 280%;
         color: red;
     }
 
@@ -76,6 +92,12 @@
     }
 
     #info2{
+        font-weight: bold;
+        font-size: small;
+        color: darkblue;
+    }
+
+    #model_display{
         font-weight: bold;
         font-size: small;
     }
@@ -89,12 +111,20 @@
         /*font-size: larger;*/
     }
 
+    #title-div{
+        height: 70px;
+    }
+
     /* To remove card border from print
     /*
     .card{
         border: 0px;
         padding: 0px 0px 0px 0px;
     }*/
+
+    .card{
+        border-color: black;
+    }
 
     .col-print-12{width:100%; float:left;}
 }

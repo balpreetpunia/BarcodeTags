@@ -4,10 +4,10 @@
          echo '<img class="img-fluid" src="img/samsung.png">';
      }
      elseif (strtolower($brand) == 'amana'){
-         echo '<img class="img-fluid" src="img/amana.gif">';
+         echo '<img class="img-fluid" src="img/amana.png">';
      }
      elseif (strtolower($brand) == 'whirlpool'){
-         echo '<img class="img-fluid" src="img/whirlpool.jpg">';
+         echo '<img class="img-fluid" src="img/whirlpool.png">';
      }
      elseif (strtolower($brand) == 'kitchenaid'){
          echo '<img class="img-fluid" src="img/kitchenaid.png">';
@@ -34,13 +34,13 @@
          echo '<img class="img-fluid" src="img/ashley.png">';
      }
      elseif (strtolower($brand) == 'jennair'){
-         echo '<img class="img-fluid" src="img/jennair.jpg">';
+         echo '<img class="img-fluid" src="img/jennair.png">';
      }
      elseif (strtolower($brand) == 'klipsch'){
          echo '<img class="img-fluid" src="img/klipsch.png">';
      }
      elseif (strtolower($brand) == 'tempurpedic'){
-         echo '<img class="img-fluid" src="img/tempurpedic.jpg">';
+         echo '<img class="img-fluid" src="img/tempurpedic.png">';
      }
      elseif (strtolower($brand) == 'sealy'){
          echo '<img class="img-fluid" src="img/sealy.png">';
@@ -54,20 +54,20 @@
  }
 
  function getBrand(){
-     echo '<option value"AMANA">AMANA</option>
-           <option value"ASHLEY">ASHLEY</option>
-           <option value"BOSCH">BOSCH</option>
-           <option value"ELECTROLUX">ELECTROLUX</option>
-           <option value"FRIGIDAIRE">FRIGIDAIRE</option>
-           <option value"JENNAIR">JENNAIR</option>
-           <option value"KITCHENAID">KITCHENAID</option>
-           <option value"KLIPSCH">KLIPSCH</option>
-           <option value"LG">LG</option>
-           <option value"MAYTAG">MAYTAG</option>
-           <option value"SAMSUNG">SAMSUNG</option>
-           <option value"SEALY">SEALY</option>
-           <option value"SOFA BY FANCY">SOFA BY FANCY</option>
-           <option value"SONY">SONY</option>
-           <option value"TEMPURPEDIC">TEMPURPEDIC</option>
-           <option value"WHIRLPOOL">WHIRLPOOL</option>';
+     echo '<option value=AMANA">AMANA</option>
+           <option value="ASHLEY">ASHLEY</option>
+           <option value="BOSCH">BOSCH</option>
+           <option value="ELECTROLUX">ELECTROLUX</option>
+           <option value="FRIGIDAIRE">FRIGIDAIRE</option>
+           <option value="JENNAIR">JENNAIR</option>
+           <option value="KITCHENAID">KITCHENAID</option>
+           <option value="KLIPSCH">KLIPSCH</option>
+           <option value="LG">LG</option>
+           <option value="MAYTAG">MAYTAG</option>
+           <option value="SAMSUNG">SAMSUNG</option>
+           <option value="SEALY">SEALY</option>
+           <option value="SOFA BY FANCY">SOFA BY FANCY</option>
+           <option value="SONY">SONY</option>
+           <option value="TEMPURPEDIC">TEMPURPEDIC</option>
+           <option value="WHIRLPOOL">WHIRLPOOL</option>';
  }
