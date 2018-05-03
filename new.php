@@ -6,6 +6,7 @@
     $description = isset($_POST['description']) ? $_POST['description'] : null;
     $price = isset($_POST['price']) ? $_POST['price'] : '';
     $brand = isset($_POST['brand']) ? $_POST['brand'] : '';
+    $title = isset($_POST['title']) ? $_POST['title'] : '';
 
     $error = 0;
     $success = 0;
@@ -13,7 +14,7 @@
     require_once( 'shared/connect.php' );
 
     if ($model != '' && $price != ''){
-        $sql = "INSERT INTO data (`MODEL`, `DESCRIPTION`, `PRICE`, `BRAND`) VALUES ('$model','$description',$price,'$brand');";
+        $sql = "INSERT INTO data (MODEL, DESCRIPTION, PRICE, BRAND, TITLE) VALUES ('$model','$description',$price,'$brand','$title');";
         $dbh->exec($sql);
         $success = 1;
     }
@@ -58,6 +59,9 @@
                     <option value="">Select Brand</option>
                     <?php include 'shared/brand.php';  getBrand(); ?>
                 </select>
+            </div>
+            <div class=" form-group input-group">
+                <textarea id="title" name="title" class="form-control" placeholder="Title" type="text"></textarea>
             </div>
             <div class=" form-group input-group">
                 <textarea id="description" name="description" class="form-control" placeholder="Description" type="text" maxlength="190"></textarea>

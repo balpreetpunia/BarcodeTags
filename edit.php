@@ -11,6 +11,7 @@
     $modelUpdate = strtoupper($modelUpdate);
 
     $title = isset($_POST['title']) ? $_POST['title'] : '';
+    $brand = isset($_POST['brand']) ? $_POST['brand'] : '';
     $description = isset($_POST['description']) ? $_POST['description'] : '';
     $price = isset($_POST['price']) ? $_POST['price'] : '';
     $id = isset($_POST['id']) ? $_POST['id'] : '';
@@ -30,7 +31,7 @@
     }
 
     if ($modelUpdate != ''){
-        $sqlUpdate = "update data set model = '$modelUpdate', title = '$title', description = '$description', price = $price where id = $id";
+        $sqlUpdate = "update data set model = '$modelUpdate', title = '$title', brand = '$brand', description = '$description', price = $price where id = $id";
         $dbh->exec($sqlUpdate);
 
         $success = 1;
@@ -65,6 +66,12 @@
             <div class="form-group">
                 <input id="model" name="modelUpdate" class="form-control" placeholder="Model" type="text" />
             </div>
+            <div class="form-group input-group">
+                <select class="form-control" id="brand" name="brand">
+                    <option value="">Select Brand</option>
+                    <?php include 'shared/brand.php';  getBrand(); ?>
+                </select>
+            </div>
             <div class=" form-group input-group">
                 <textarea id="title" name="title" class="form-control" placeholder="Title" type="text"></textarea>
             </div>
@@ -85,6 +92,9 @@
     </div>
 </div>
 <hr>
+<script>
+    document.getElementById('brand').value = "<?=$avail['BRAND']?>";
+</script>
 <script>
     <?php
         if($model != ''){

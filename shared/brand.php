@@ -48,6 +48,21 @@
      elseif (strtolower($brand) == 'sofa by fancy'){
          echo '<img class="img-fluid" src="img/fancy.png">';
      }
+     elseif (strtolower($brand) == 'sonos'){
+         echo '<img class="img-fluid" src="img/sonos.png">';
+     }
+     elseif (strtolower($brand) == 'elica'){
+         echo '<img class="img-fluid" src="img/elica.png">';
+     }
+     elseif (strtolower($brand) == 'onkyo'){
+         echo '<img class="img-fluid" src="img/onkyo.png">';
+     }
+     elseif (strtolower($brand) == 'bluesound'){
+         echo '<img class="img-fluid" src="img/bluesound.png">';
+     }
+     elseif (strtolower($brand) == 'maxair'){
+         echo '<img class="img-fluid" src="img/maxair.png">';
+     }
      else{
          echo '<p> Company Logo</p>';
      }
@@ -57,16 +72,23 @@
      echo '<option value=AMANA">AMANA</option>
            <option value="ASHLEY">ASHLEY</option>
            <option value="BOSCH">BOSCH</option>
+           <option value="BLUESOUND">BLUESOUND</option>
+           <option value="CROWN">CROWN</option>
            <option value="ELECTROLUX">ELECTROLUX</option>
+           <option value="ELICA">ELICA</option>
            <option value="FRIGIDAIRE">FRIGIDAIRE</option>
            <option value="JENNAIR">JENNAIR</option>
            <option value="KITCHENAID">KITCHENAID</option>
            <option value="KLIPSCH">KLIPSCH</option>
            <option value="LG">LG</option>
            <option value="MAYTAG">MAYTAG</option>
+           <option value="MAXAIR">MAXAIR</option>
+           <option value="NAPOLEON">NAPOLEON</option>
+           <option value="ONKYO">ONKYO</option>
            <option value="SAMSUNG">SAMSUNG</option>
            <option value="SEALY">SEALY</option>
            <option value="SOFA BY FANCY">SOFA BY FANCY</option>
+           <option value="SONOS">SONOS</option>
            <option value="SONY">SONY</option>
            <option value="TEMPURPEDIC">TEMPURPEDIC</option>
            <option value="WHIRLPOOL">WHIRLPOOL</option>';
