@@ -63,6 +63,12 @@
      elseif (strtolower($brand) == 'maxair'){
          echo '<img class="img-fluid" src="img/maxair.png">';
      }
+     elseif (strtolower($brand) == 'fabrics point'){
+         echo '<img class="img-fluid" src="img/fabricspoint.png">';
+     }
+     elseif (strtolower($brand) == 'napoleon'){
+         echo '<img class="img-fluid" src="img/napoleon.png">';
+     }
      else{
          echo '<p> Company Logo</p>';
      }
@@ -76,6 +82,7 @@
            <option value="CROWN">CROWN</option>
            <option value="ELECTROLUX">ELECTROLUX</option>
            <option value="ELICA">ELICA</option>
+           <option value="FABRICS POINT">FABRICS POINT</option>
            <option value="FRIGIDAIRE">FRIGIDAIRE</option>
            <option value="JENNAIR">JENNAIR</option>
            <option value="KITCHENAID">KITCHENAID</option>
