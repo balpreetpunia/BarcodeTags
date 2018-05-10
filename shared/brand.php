@@ -8,16 +8,12 @@
 
  function getImage($brand)
  {
-     global $brands_list;
-     $found = 0;
-     foreach ($brands_list as $value) {
-         if (strtolower($brand) == strtolower($value)) {
-             echo "<img class='img-fluid' src='img/$value.png'>";
-             $found = 1;
-             break;
+     $brand = strtolower($brand);
+     $path = "img/$brand.png";
+     if(file_exists($path)){
+             echo "<img class='img-fluid' src='img/$brand.png'>";
          }
-     }
-     if ($found ==0) {
+     else{
          echo '<p> Company Logo</p>';
      }
  }

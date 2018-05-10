@@ -93,9 +93,6 @@
 </div>
 <hr>
 <script>
-    document.getElementById('brand').value = "<?=$avail['BRAND']?>";
-</script>
-<script>
     <?php
         if($model != ''){
             foreach ($available as $avail ){
@@ -114,6 +111,7 @@
                 echo "document.getElementById('title').value = '". $title."';";
                 echo "document.getElementById('description').value = '". $description."';";
                 echo 'document.getElementById("price").value = "'.$avail["PRICE"].'";';
+                echo 'document.getElementById("brand").value = "'.strtoupper($avail['BRAND']).'";';
             }
         }
 
