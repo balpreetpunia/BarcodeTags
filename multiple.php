@@ -15,7 +15,7 @@ if (isset($_POST["multiple"])) {
 
     $dbh = null;
 
-    $i = 1;
+    $i = 0;
 }
 
 
@@ -136,7 +136,7 @@ if (isset($_POST["multiple"])) {
 </script>
 <script>
     <?= 'document.getElementById("model").value = "'.$sql1.'";'; ?>
-    <?= 'document.getElementById("count").innerHTML = "Total Generated: '.($i-1).'";'; ?>
+    <?= 'document.getElementById("count").innerHTML = "Total Generated: '.($i).'";'; ?>
     <?= 'document.getElementById("requested").innerHTML = "Total Requested: '.($requested).'";'; ?>
 </script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
