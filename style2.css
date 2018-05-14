@@ -64,7 +64,11 @@
 @media print {
 
     @page  {
+        /*
+        previous setting
         size: 6in 4in;
+         */
+        size: 6in 11in;
     }
 
     #container1,#count,#requested, hr {
@@ -120,7 +124,10 @@
     }
 
     #test {
-        padding-bottom: 8.15cm;
+        /*previous setting
+        padding-botton: 8.15cm;
+         */
+        padding-bottom: 8.645cm;
     }
 
     /* To remove card border from print
