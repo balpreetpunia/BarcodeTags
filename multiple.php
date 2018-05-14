@@ -2,7 +2,7 @@
 require_once( 'shared/connect.php' );
 
 if (isset($_POST["multiple"])) {
-    $sql1 = $_POST["multiple"];
+    $sql1 = strtoupper($_POST["multiple"]);
     $requested = substr_count($sql1, ',') +1;
     $sql = str_replace(",", "' OR MODEL = '", $sql1,$count);
     $sql = "SELECT * FROM data WHERE MODEL = '" . $sql . "';";
@@ -16,6 +16,19 @@ if (isset($_POST["multiple"])) {
     $dbh = null;
 
     $i = 0;
+
+
+    //To catch model not generated
+
+    $vals = explode(',', $sql1);
+
+    //Trim whitespace
+    foreach($vals as $key => $val) {
+        $vals[$key] = trim($val);
+    }
+
+    $o_array = array_diff($vals, array(""));
+    $g_array = array();
 }
 
 
@@ -66,6 +79,9 @@ if (isset($_POST["multiple"])) {
             <div class="col-6 p-0 text-right">
                 <strong id="requested"></strong>
             </div>
+            <div class="col-12 p-0">
+                <strong id="not_generated"></strong>
+            </div>
         </div>
     </div>
 </div>
@@ -111,7 +127,6 @@ if (isset($_POST["multiple"])) {
                 </div>
             </div>
         </div>
-
 <script>
     <?php
     if($model != ''){
@@ -120,6 +135,8 @@ if (isset($_POST["multiple"])) {
             height: 25,
             displayValue: false
             });';
+
+        array_push($g_array,"$model");
 
     }
     $i++;
@@ -134,10 +151,19 @@ if (isset($_POST["multiple"])) {
             event.preventDefault();
     });*/
 </script>
+<?php
+    if (isset($o_array)){
+        $not_generated = array_diff($o_array,$g_array);
+    }
+?>
 <script>
     <?= 'document.getElementById("model").value = "'.$sql1.'";'; ?>
     <?= 'document.getElementById("count").innerHTML = "Total Generated: '.($i).'";'; ?>
     <?= 'document.getElementById("requested").innerHTML = "Total Requested: '.($requested).'";'; ?>
+    <?php
+        $string=implode(", ",$not_generated);
+        if (!empty($string)){echo 'document.getElementById("not_generated").innerHTML = "Not generated: '.$string.'";';}
+    ?>
 </script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
