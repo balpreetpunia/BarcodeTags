@@ -3,6 +3,13 @@ require_once( 'shared/connect.php' );
 
 if (isset($_POST["multiple"])) {
     $sql1 = strtoupper($_POST["multiple"]);
+
+    //Get rid of multiple commas and/or commas at the end.
+    $sql1 = strtoupper($sql1);
+    $sql1 = rtrim($sql1, ',');
+    $sql1 = preg_replace('/,+/', ',', $sql1);
+
+
     $requested = substr_count($sql1, ',') +1;
     $sql = str_replace(",", "' OR MODEL = '", $sql1,$count);
     $sql = "SELECT * FROM data WHERE MODEL = '" . $sql . "';";
