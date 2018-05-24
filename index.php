@@ -24,7 +24,7 @@ $dbh=null;
     <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/quagga/0.12.1/quagga.min.js"></script>-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
     <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/themes/base/minified/jquery-ui.min.css" type="text/css" />
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-aNUYGqSUL9wG/vP7+cWZ5QOM4gsQou3sBfWRr/8S3R1Lv0rysEmnwsRKMbhiQX/O" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -42,9 +42,9 @@ $dbh=null;
                 </span>-->
             </div>
             <div class="btn-group d-flex" role="group">
-                <button class="btn btn-primary w-100" id="generate" onclick="code1();" type="submit">Generate</button>
-                <button class="btn btn-dark w-100"  type="button" onclick="window.print();" >Print</button>
-                <a class="btn btn-success w-100"  type="button" id="edit" onclick="return code2();" href="edit?model=<?= $model ?>" >Edit</a>
+                <button class="btn btn-primary w-100" id="generate" onclick="code1();" type="submit"><i class="fas fa-tag"></i>&nbsp;Generate</button>
+                <button class="btn btn-dark w-100"  type="button" onclick="window.print();" ><i class="fas fa-print"></i>&nbsp;Print</button>
+                <a class="btn btn-success w-100"  type="button" id="edit" onclick="return code2();" href="edit?model=<?= $model ?>" ><i class="fas fa-edit"></i>&nbsp;Edit</a>
                 <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 </button>
                 <div class="dropdown-menu">
