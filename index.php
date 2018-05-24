@@ -99,6 +99,7 @@ $dbh=null;
         </div>
     <?php endforeach ?>
 </div>
+<br><br>
 <script>
     <?php
     if($model != ''){
