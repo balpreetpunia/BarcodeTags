@@ -44,7 +44,7 @@ $dbh=null;
             <div class="btn-group d-flex" role="group">
                 <button class="btn btn-primary w-100" id="generate" onclick="code1();" type="submit"><i class="fas fa-tag"></i>&nbsp;Generate</button>
                 <button class="btn btn-dark w-100"  type="button" onclick="window.print();" ><i class="fas fa-print"></i>&nbsp;Print</button>
-                <a class="btn btn-success w-100"  type="button" id="edit" onclick="return code2();" href="edit?model=<?= $model ?>" ><i class="fas fa-edit"></i>&nbsp;Edit</a>
+                <button class="btn btn-success w-100"  type="button" id="edit" onclick="return code2();"><i class="fas fa-edit"></i>&nbsp;Edit</button>
                 <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 </button>
                 <div class="dropdown-menu">
@@ -154,7 +154,9 @@ $dbh=null;
             window.confirm("Generate tag to edit");
             return false;
         }
-
+        else{
+            location.href = "edit?model=<?= $model ?>";
+        }
     }
 </script>
 <script>

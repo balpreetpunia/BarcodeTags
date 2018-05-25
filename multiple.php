@@ -71,7 +71,7 @@ if (isset($_POST["multiple"])) {
             <div class="btn-group d-flex" role="group">
                 <button class="btn btn-primary w-100" id="generate" type="submit"><i class="fas fa-tags"></i>&nbsp;Generate</button>
                 <button class="btn btn-dark w-100"  type="button" onclick="window.print();"><i class="fas fa-print"></i>&nbsp;Print</button>
-                <a class="btn btn-success w-100" type="button" href="index"><i class="fas fa-arrow-circle-left"></i>&nbsp;Back</a>
+                <button class="btn btn-success w-100" type="button" onclick="location.href='index'"><i class="fas fa-arrow-circle-left"></i>&nbsp;Back</button>
             </div>
         </form>
     </div>
