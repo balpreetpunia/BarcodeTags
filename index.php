@@ -45,13 +45,12 @@ $dbh=null;
                 <button class="btn btn-primary w-100" id="generate" onclick="code1();" type="submit"><i class="fas fa-tag"></i>&nbsp;Generate</button>
                 <button class="btn btn-dark w-100"  type="button" onclick="window.print();" ><i class="fas fa-print"></i>&nbsp;Print</button>
                 <button class="btn btn-success w-100"  type="button" id="edit" onclick="return code2();"><i class="fas fa-edit"></i>&nbsp;Edit</button>
-                <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button type="button" class="btn btn-light dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border: solid; border-width: 0.5px;">
                 </button>
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="new" >New Model</a>
                     <a class="dropdown-item" href="multiple" >Multiple Tags</a>
                 </div>
-
             </div>
         </form>
     </div>
