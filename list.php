@@ -49,6 +49,7 @@ $serial = 1;
                 <th>Title</th>
                 <!--<th>Description</th>-->
                 <th>Price</th>
+                <th>Action</th>
             </tr>
             </thead>
             <tbody>
@@ -60,6 +61,7 @@ $serial = 1;
                 <td><?= $row['TITLE']?></td>
                 <!--<td><?= $row['DESCRIPTION']?></td>-->
                 <td><?php if(!empty($row['PRICE'])) echo '$'.$row['PRICE']?></td>
+                <td><a title="Generate Tag" href="index?model=<?=$row['MODEL']?>"><i class="fas fa-tag"></i></a>&nbsp;&nbsp;&nbsp;<a title="Edit" href="edit?model=<?=$row['MODEL']?>"><i class="fas fa-edit"></i></a></td>
             </tr>
             <?php endforeach ?>
             </tbody>
