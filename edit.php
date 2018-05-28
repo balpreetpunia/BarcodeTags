@@ -85,8 +85,8 @@
                 <input name="id" value="<?= $id ?>" type="hidden" />
             </div>
             <div class="btn-group d-flex" role="group">
-                <button class="btn btn-success w-100" id="clickMe" type="submit" value="save" onclick="code();" >Save</button>
-                <a class="btn btn-primary w-100" id="clickMe3" type="button" href="index?model=<?= $model?>" >Back</a>
+                <button class="btn btn-success w-100" id="clickMe" type="submit" value="save">Save</button>
+                <button class="btn btn-primary w-100" id="clickMe3" type="button" onclick="location.href='index?model=<?= $model?>'" >Back</button>
             </div>
         </form>
     </div>
