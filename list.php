@@ -34,7 +34,8 @@ $serial = 1;
         <div class="input-group-prepend">
             <span class="input-group-text"><i class="fas fa-search"></i></span>
         </div>
-        <input type="text" id="myInput" onkeyup="myFunction()" class="form-control" placeholder="Search for Model..." title="Type in a model">
+        <input type="text" id="myInput" onkeyup="myFunction('model')" class="form-control" placeholder="Search By Model..." title="Type in a model">
+        <input type="text" id="myInputB" onkeyup="myFunction('brand')" class="form-control" placeholder="Search By Brand..." title="Type in a brand">
         <div class="input-group-append">
             <button class="btn btn-success" type="button" onclick="location.href='index'"><i class="fas fa-arrow-circle-left"></i>&nbsp;Back</button>
         </div>
@@ -59,10 +60,10 @@ $serial = 1;
                 <td><?= $row['MODEL']?></td>
                 <td><?= $row['BRAND']?></td>
                 <td><?= $row['TITLE']?></td>
-                <!--<td><?= $row['DESCRIPTION']?></td>-->
+                <!--<td><?/*= $row['DESCRIPTION']*/?></td>-->
                 <td><?php if(!empty($row['PRICE'])) echo '$'.$row['PRICE']?></td>
                 <td><a title="Generate Tag" href="index?model=<?=$row['MODEL']?>"><i class="fas fa-tag"></i></a>
-                    &nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;
                     <a title="Edit" href="edit?model=<?=$row['MODEL']?>"><i class="fas fa-edit"></i></a>
                 </td>
             </tr>
@@ -72,14 +73,27 @@ $serial = 1;
     </div>
 </div>
 <script>
-    function myFunction() {
-        var input, filter, table, tr, td, i;
-        input = document.getElementById("myInput");
+    function myFunction(type) {
+        var input, filter, table, tr, td, i, index;
+
+        if(type == 'model'){
+            index = 1;
+            input = document.getElementById("myInput");
+            document.getElementById("myInputB").value="";
+        }
+        else if (type == 'brand'){
+            index = 2;
+            input = document.getElementById("myInputB");
+            document.getElementById("myInput").value="";
+        }
+
         filter = input.value.toUpperCase();
         table = document.getElementById("myTable");
         tr = table.getElementsByTagName("tr");
+
+
         for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[1];
+            td = tr[i].getElementsByTagName("td")[index];
             if (td) {
                 if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
                     tr[i].style.display = "";
