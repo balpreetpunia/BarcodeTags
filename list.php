@@ -35,6 +35,9 @@ $serial = 1;
             <span class="input-group-text"><i class="fas fa-search"></i></span>
         </div>
         <input type="text" id="myInput" onkeyup="myFunction()" class="form-control" placeholder="Search for Model..." title="Type in a model">
+        <div class="input-group-append">
+            <button class="btn btn-success" onclick="location.href='index'">Back</button>
+        </div>
     </div>
     <div class="table-responsive-sm">
         <table id="myTable" class="table table-striped table-bordered">
