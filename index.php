@@ -50,6 +50,7 @@ $dbh=null;
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="new" >New Model</a>
                     <a class="dropdown-item" href="multiple" >Multiple Tags</a>
+                    <a class="dropdown-item" href="list" >Models List</a>
                 </div>
             </div>
         </form>
