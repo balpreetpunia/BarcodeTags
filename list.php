@@ -36,17 +36,18 @@ $serial = 1;
         </div>
         <input type="text" id="myInput" onkeyup="myFunction()" class="form-control" placeholder="Search for Model..." title="Type in a model">
         <div class="input-group-append">
-            <button class="btn btn-success" onclick="location.href='index'">Back</button>
+            <button class="btn btn-success" type="button" onclick="location.href='index'"><i class="fas fa-arrow-circle-left"></i>&nbsp;Back</button>
         </div>
     </div>
     <div class="table-responsive-sm">
-        <table id="myTable" class="table table-striped table-bordered">
+        <table id="myTable" class="table table-hover table-bordered">
             <thead>
             <tr>
                 <th>#</th>
                 <th>Model</th>
                 <th>Brand</th>
                 <th>Title</th>
+                <!--<th>Description</th>-->
                 <th>Price</th>
             </tr>
             </thead>
@@ -57,7 +58,8 @@ $serial = 1;
                 <td><?= $row['MODEL']?></td>
                 <td><?= $row['BRAND']?></td>
                 <td><?= $row['TITLE']?></td>
-                <td><?= '$'.$row['PRICE']?></td>
+                <!--<td><?= $row['DESCRIPTION']?></td>-->
+                <td><?php if(!empty($row['PRICE'])) echo '$'.$row['PRICE']?></td>
             </tr>
             <?php endforeach ?>
             </tbody>
