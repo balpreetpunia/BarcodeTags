@@ -77,6 +77,7 @@ $serial = 1;
                 <td><?php if(!empty($row['PRICE'])) echo '$'.$row['PRICE']?></td>
                 <td>&nbsp;<a title="Generate Tag" href="index?model=<?=$row['MODEL']?>"><i class="fas fa-tag"></i></a>
                     &nbsp;&nbsp;<a title="Edit" href="edit?model=<?=$row['MODEL']?>"><i class="fas fa-edit"></i></a>
+                    &nbsp;&nbsp;<a title="Delete" href="delete?model=<?=$row['MODEL']?>" style="color: red"><i class="fas fa-trash-alt"></i></a>
                 </td>
             </tr>
             <?php endforeach ?>
@@ -117,7 +118,7 @@ $serial = 1;
     }
 </script>
 <script>
-    window.onscroll = function() {stickyFunction(})/*,stickyFunction2()*/};
+    window.onscroll = function() {stickyFunction()}/*,stickyFunction2()*/;
 
     var stick = document.getElementById("stickForm");
     var sticky = stick.offsetTop;
@@ -130,14 +131,12 @@ $serial = 1;
         } else {
             stick.classList.remove("stickyForm");
         }
-        if((window.pageYOffset-400) >= sticky){
-            stick.style.backgroundColor = "red";
-            table.style.top = '100px';
+        /*if((window.pageYOffset-400) >= sticky){
+            stick.style.display = "none";
         }
         else{
-            stick.style.backgroundColor = "";
-            table.style.top = '';
-        }
+            stick.style.display = "flex";
+        }*/
     }
 </script>
 </body>
