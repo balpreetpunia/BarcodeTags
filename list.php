@@ -20,6 +20,19 @@ $serial = 1;
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
     <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/themes/base/minified/jquery-ui.min.css" type="text/css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <style>
+        .stickyForm {
+            position: sticky;
+            top: 0px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            left: 5%;
+            width: 100%;
+            background-color: white;
+            border: 0px solid silver;
+            border-bottom-width: 1px;
+        }
+    </style>
 </head>
 <body>
 <div class="container">
@@ -30,7 +43,7 @@ $serial = 1;
 </div>
 <hr>
 <div class="container">
-    <div class="input-group mb-3">
+    <div class="input-group mb-3" id="stickForm">
         <div class="input-group-prepend">
             <span class="input-group-text"><i class="fas fa-search"></i></span>
         </div>
@@ -40,7 +53,7 @@ $serial = 1;
             <button class="btn btn-success" type="button" onclick="location.href='index'"><i class="fas fa-arrow-circle-left"></i>&nbsp;Back</button>
         </div>
     </div>
-    <div class="table-responsive-sm">
+    <div id="table-div" class="table-responsive-sm table-sm">
         <table id="myTable" class="table table-hover table-bordered">
             <thead>
             <tr>
@@ -62,9 +75,8 @@ $serial = 1;
                 <td><?= $row['TITLE']?></td>
                 <!--<td><?/*= $row['DESCRIPTION']*/?></td>-->
                 <td><?php if(!empty($row['PRICE'])) echo '$'.$row['PRICE']?></td>
-                <td><a title="Generate Tag" href="index?model=<?=$row['MODEL']?>"><i class="fas fa-tag"></i></a>
-                    &nbsp;&nbsp;
-                    <a title="Edit" href="edit?model=<?=$row['MODEL']?>"><i class="fas fa-edit"></i></a>
+                <td>&nbsp;<a title="Generate Tag" href="index?model=<?=$row['MODEL']?>"><i class="fas fa-tag"></i></a>
+                    &nbsp;&nbsp;<a title="Edit" href="edit?model=<?=$row['MODEL']?>"><i class="fas fa-edit"></i></a>
                 </td>
             </tr>
             <?php endforeach ?>
@@ -101,6 +113,30 @@ $serial = 1;
                     tr[i].style.display = "none";
                 }
             }
+        }
+    }
+</script>
+<script>
+    window.onscroll = function() {stickyFunction(})/*,stickyFunction2()*/};
+
+    var stick = document.getElementById("stickForm");
+    var sticky = stick.offsetTop;
+    var table = document.getElementById("myTable");
+
+    // Add the sticky class / Remove sticky
+    function stickyFunction() {
+        if (window.pageYOffset >= sticky) {
+            stick.classList.add("stickyForm");
+        } else {
+            stick.classList.remove("stickyForm");
+        }
+        if((window.pageYOffset-400) >= sticky){
+            stick.style.backgroundColor = "red";
+            table.style.top = '100px';
+        }
+        else{
+            stick.style.backgroundColor = "";
+            table.style.top = '';
         }
     }
 </script>
