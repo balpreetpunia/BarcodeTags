@@ -77,7 +77,7 @@ $serial = 1;
                 <td><?php if(!empty($row['PRICE'])) echo '$'.$row['PRICE']?></td>
                 <td>&nbsp;<a title="Generate Tag" href="index?model=<?=$row['MODEL']?>"><i class="fas fa-tag"></i></a>
                     &nbsp;&nbsp;<a title="Edit" href="edit?model=<?=$row['MODEL']?>"><i class="fas fa-edit"></i></a>
-                    &nbsp;&nbsp;<a title="Delete" href="delete?model=<?=$row['MODEL']?>" style="color: red"><i class="fas fa-trash-alt"></i></a>
+                    &nbsp;&nbsp;<a title="Delete" href="delete?model=<?=$row['MODEL']?>&source=list" style="color: red"><i class="fas fa-trash-alt"></i></a>
                 </td>
             </tr>
             <?php endforeach ?>
