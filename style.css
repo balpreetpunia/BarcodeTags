@@ -77,7 +77,7 @@
         size: 6in 11in;
     }
 
-    #container1,#count,#requested,#not_generated, hr {
+    #container1,#count,#requested,#not_generated,#duplicates, hr {
         display: none;
     }
 

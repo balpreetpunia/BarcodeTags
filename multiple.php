@@ -36,6 +36,15 @@ if (isset($_POST["multiple"])) {
 
     $o_array = array_diff($vals, array(""));
     $g_array = array();
+
+
+    $arr_count = array_count_values($o_array);
+    $duplicates = array();
+    foreach ($arr_count as $key => $val){
+        if ($val > 1){
+            $duplicates[$key] = $val-1;
+        }
+    }
 }
 
 
@@ -88,6 +97,9 @@ if (isset($_POST["multiple"])) {
             </div>
             <div class="col-12 p-0">
                 <strong id="not_generated"></strong>
+            </div>
+            <div class="col-12 p-0">
+                <strong id="duplicates"></strong>
             </div>
         </div>
     </div>
@@ -164,12 +176,22 @@ if (isset($_POST["multiple"])) {
     }
 ?>
 <script>
-    <?= 'document.getElementById("model").value = "'.$sql1.'";'; ?>
-    <?= 'document.getElementById("count").innerHTML = "Total Generated: '.($i).'";'; ?>
-    <?= 'document.getElementById("requested").innerHTML = "Total Requested: '.($requested).'";'; ?>
+    document.getElementById("model").value = "<?=$sql1?>";
+    document.getElementById("count").innerHTML = "Total Generated: <?=$i?>";
+    document.getElementById("requested").innerHTML = "Total Requested: <?=$requested?>";
     <?php
         $string=implode(", ",$not_generated);
         if (!empty($string)){echo 'document.getElementById("not_generated").innerHTML = "Not generated: '.$string.'";';}
+    ?>
+    <?php
+        if(!empty($duplicates)){
+            $display_string ="";
+            foreach ($duplicates as $key => $val){
+                $display_string .= "$key($val) , ";
+            }
+            $display_string = rtrim($display_string,", ");
+            echo 'document.getElementById("duplicates").innerHTML = "Duplicates: '.$display_string.' <a href=\"#\" id=\"generate_duplicate\">Generate Duplicates</a>'.'";';
+        }
     ?>
 </script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
