@@ -39,8 +39,9 @@ $serial = 1;
             left:43%;
             top: 15%;
             font-weight: bold;
-            font-size: x-large;
-            color: hotpink;
+            font-size: xx-large;
+            color: pink;
+            text-shadow: -1px 0 deeppink, 0 1px deeppink, 1px 0 deeppink, 0 -1px deeppink;
         }
     </style>
     <script>
