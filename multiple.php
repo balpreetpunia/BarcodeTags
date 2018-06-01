@@ -190,7 +190,7 @@ if (isset($_POST["multiple"])) {
                 $display_string .= "$key($val) , ";
             }
             $display_string = rtrim($display_string,", ");
-            echo 'document.getElementById("duplicates").innerHTML = "Duplicates: '.$display_string.' <a href=\"#\" id=\"generate_duplicate\">Generate Duplicates</a>'.'";';
+            echo 'document.getElementById("duplicates").innerHTML = "Duplicates: '.$display_string.' <a href=\"#\" id=\"generate_duplicate\">Generate Duplicate(s)</a>'.'";';
         }
     ?>
 </script>

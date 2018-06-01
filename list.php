@@ -20,6 +20,36 @@ $serial = 1;
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
     <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/themes/base/minified/jquery-ui.min.css" type="text/css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
+    <style>
+        .no-js #loader { display: none;  }
+        .js #loader { display: block; position: absolute; left: 100px; top: 0; }
+        .se-pre-con {
+            position: fixed;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            background: url(img/loading.gif) center no-repeat #fff;
+        }
+        .load{
+            position: fixed;
+            left:43%;
+            top: 15%;
+            font-weight: bold;
+            font-size: x-large;
+            color: hotpink;
+        }
+    </style>
+    <script>
+        $(window).load(function() {
+            // Animate loader off screen
+            $(".se-pre-con").fadeOut("slow");
+            $("body").removeAttr("style");
+        });
+    </script>
     <style>
         .stickyForm {
             position: sticky;
@@ -34,7 +64,8 @@ $serial = 1;
         }
     </style>
 </head>
-<body>
+<body style="overflow: hidden;">
+<div class="se-pre-con"><span class="load">Loading...</span></div>
 <div class="container">
     <div class="jumbotron">
         <h1>Teletime Barcode Tag Generator</h1>
