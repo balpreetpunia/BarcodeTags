@@ -2,7 +2,7 @@
 
     $brands_list = array("amana","ashley","bosch","bluesound","crown","electrolux","elica","fabrics point","frigidaire",
     "jennair","kitchenaid","klipsch","lg","maytag","maxair","napoleon","onkyo","samsung","sealy","sofa by fancy","sonos",
-    "sony","tempurpedic","whirlpool");
+    "sony","tempurpedic","whirlpool","traeger");
 
     asort($brands_list);
 
