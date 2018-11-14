@@ -1,6 +1,6 @@
-<?php
+'<?php
 
-    $brands_list = array("amana","ashley","bosch","bluesound","crown","electrolux","elica","fabrics point","frigidaire",
+    $brands_list = array("amana","ashley","bosch","bluesound","crown","Crown Mirrors","electrolux","elica","fabrics point","frigidaire",
     "jennair","kitchenaid","klipsch","lg","maytag","maxair","napoleon","onkyo","samsung","sealy","sofa by fancy","sonos",
     "sony","tempurpedic","whirlpool","traeger");
 
@@ -14,7 +14,7 @@
              echo "<img class='img-fluid' src='img/$brand.png'>";
          }
      else{
-         echo '<p> Company Logo</p>';
+         echo '<p style = "font-size: larger"> CROWN MIRRORS</p>';
      }
  }
 
